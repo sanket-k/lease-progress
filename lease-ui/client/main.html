@@ -67,7 +67,7 @@
   <br>
 
   <fieldset>
-  <legend><big><b>View Status</b></big></legend>
+  <legend><big><b>View Approval Status</b></big></legend>
   <input id="view_lease_approved_UIN" type="text" placeholder="UIN">
   <button id="button_view_lease_approved"> View Approval</button>
   <pre id="view_lease_approved_line1" style="text-align: center"> <font size="7"> </font> </pre><br>
@@ -134,9 +134,6 @@
     var viewLeaseLine3 = document.getElementById("view_lease_approved_line3");
     var viewLeaseLine4 = document.getElementById("view_lease_approved_line4");
     var viewLeaseLine5 = document.getElementById("view_lease_approved_line5");
-    var viewLeaseLine6 = document.getElementById("view_lease_approved_line6");
-    var viewLeaseLine7 = document.getElementById("view_lease_approved_line7");
-    var viewLeaseLine8 = document.getElementById("view_lease_approved_line8");
 
 
     //add Issuer
@@ -219,10 +216,10 @@
     //view status 
     buttonViewLeaseApproved.addEventListener('click', function(){
       leaseContract.displayApproved(viewApprovedUIN.value, function (err, res){
-        view_lease_approved_line1.innerHTML = "signatory 1 " + res[0];
-        view_lease_approved_line1.innerHTML = "signatory 2 " + res[1];
-        view_lease_approved_line1.innerHTML = "signatory 3 " + res[2];
-        view_lease_approved_line1.innerHTML = "status " + res[3];
+        view_lease_approved_line1.innerHTML = "<strong><b><big>Signatory 1 :" + res[0];
+        view_lease_approved_line2.innerHTML = "<strong><b><big>Signatory 2 :" + res[1];
+        view_lease_approved_line3.innerHTML = "<strong><b><big>Signatory 3 :" + res[2];
+        view_lease_approved_line4.innerHTML = "<strong><b><big>Status :" + res[3];
       });
     })
     
