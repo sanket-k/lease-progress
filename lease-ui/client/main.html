@@ -48,6 +48,20 @@
   <pre id="view_lease_line4" style="text-align: center"> </pre><br>
   <pre id="view_lease_line5" style="text-align: center"> </pre><br>
   <pre id="view_lease_line6" style="text-align: center"> </pre><br>
+  <pre id="view_lease_line7" style="text-align: center"> </pre><br>
+  <pre id="view_lease_line8" style="text-align: center"> </pre><br>
+  </fieldset>
+  
+  <br>
+  
+  <fieldset>
+    <legend><big><b>Issue lease</b></big></legend>
+    <input id="approve_lease_1_UIN" type="text" placeholder="UIN" style="text-align: left">
+    <button id="button_approve_lease_1" style="text-align: left">Approve Lease(issuer 1)</button>
+    <input id="approve_lease_2_UIN" type="text" placeholder="UIN" style="position: absolute; right: 60%">
+    <button id="button_approve_lease_2" style="position: absolute; right: 51%">Approve Lease(issuer 2)</button>
+    <input id="approve_lease_3_UIN" type="text" placeholder="UIN" style="position: absolute; right: 30%">
+    <button id="button_approve_lease_3" style="position: absolute; right: 21%">Approve Lease(issuer 3)</button>
   </fieldset>
   
   <br>
@@ -104,6 +118,14 @@
     var viewLeaseLine7 = document.getElementById("view_lease_line7");
     var viewLeaseLine8 = document.getElementById("view_lease_line8");
 
+    //approve lease
+    var approveLease1UIN = document.getElementById("approve_lease_1_UIN");
+    var buttonApproveLease1 = document.getElementById("button_approve_lease_1");
+    var approveLease2UIN = document.getElementById("approve_lease_2_UIN");
+    var buttonApproveLease2 = document.getElementById("button_approve_lease_2");
+    var approveLease3UIN = document.getElementById("approve_lease_3_UIN");
+    var buttonApproveLease3 = document.getElementById("button_approve_lease_3");
+
     //view Status
     var viewApprovedUIN = document.getElementById("view_lease_approved_UIN");
     var buttonViewLeaseApproved = document.getElementById("button_view_lease_approved");
@@ -115,6 +137,7 @@
     var viewLeaseLine6 = document.getElementById("view_lease_approved_line6");
     var viewLeaseLine7 = document.getElementById("view_lease_approved_line7");
     var viewLeaseLine8 = document.getElementById("view_lease_approved_line8");
+
 
     //add Issuer
     buttonAddIssuer.addEventListener('click', function(){
@@ -158,14 +181,38 @@
       leaseContract.displayLease(viewLeaseUIN.value, function(err, res){
         view_lease_line1.innerHTML = "<b><big><big><big><big><big><big><u><font size = '6'> </font> Lease Agreement";
         view_lease_line2.innerHTML = "<big><b>The agreement for " + res[4] + " is issued to ";
-        view_lease_line3.innerHTML = "<b><big><big><big><big><em><strong>" + res[0] + "(" + res[1] + ")";
+        view_lease_line3.innerHTML = "<b><big><big><big><big><em><strong>" + res[0] + "<br>" + "(" + res[1] + ")";
         view_lease_line4.innerHTML = "<b><big><big><em><strong>" + "and";
-        view_lease_line5.innerHTML = "<b><big><big><big><big><em><strong>" + res[2] + "(" + res[3] + ")";
-        view_lease_line6.innerHTML = "<big><b>Signed on : " + res[5];
+        view_lease_line5.innerHTML = "<b><big><big><big><big><em><strong>" + res[2] + "<br>" + "(" + res[3] + ")";
+        view_lease_line6.innerHTML = "<big><b>Date : " + res[5];
 
         console.log(res);
         console.log(err);
 
+      });
+    })
+
+    buttonApproveLease1.addEventListener('click',function(){
+      leaseContract.approve1(approveLease1UIN.value, function(err, res){
+        res;
+        console.log(res);
+        console.log(err);
+      });
+    })
+
+    buttonApproveLease2.addEventListener('click',function(){
+      leaseContract.approve2(approveLease2UIN.value, function(err, res){
+        res;
+        console.log(res);
+        console.log(err);
+      });
+    })
+
+    buttonApproveLease3.addEventListener('click',function(){
+      leaseContract.approve3(approveLease3UIN.value, function(err, res){
+        res;
+        console.log(res);
+        console.log(err);
       });
     })
 
