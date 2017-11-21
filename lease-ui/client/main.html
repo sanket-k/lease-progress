@@ -48,6 +48,8 @@
   <pre id="view_lease_line4" style="text-align: center"> </pre><br>
   <pre id="view_lease_line5" style="text-align: center"> </pre><br>
   <pre id="view_lease_line6" style="text-align: center"> </pre><br>
+  <!-- <pre id="view_lease_line7" style="text-align: center"> </pre><br>
+  <pre id="view_lease_line8" style="text-align: center"> </pre><br> -->
   </fieldset>
   
   <br>
@@ -114,6 +116,8 @@
     var viewLeaseLine4 = document.getElementById("view_lease_line4");
     var viewLeaseLine5 = document.getElementById("view_lease_line5");
     var viewLeaseLine6 = document.getElementById("view_lease_line6");
+    // var viewLeaseLine7 = document.getElementById("view_lease_line7");
+    // var viewLeaseLine8 = document.getElementById("view_lease_line8");
 
     //approve lease
     var approveLease1UIN = document.getElementById("approve_lease_1_UIN");
@@ -175,9 +179,9 @@
       leaseContract.displayLease(viewLeaseUIN.value, function(err, res){
         view_lease_line1.innerHTML = "<b><big><big><big><big><big><big><u><font size = '6'> </font> Lease Agreement";
         view_lease_line2.innerHTML = "<big><b>The agreement for " + res[4] + " is issued from ";
-        view_lease_line3.innerHTML = "<b><big><big><big><big><em><strong>" + res[0] + "<br>" + "(" + res[1] + ")";
+        view_lease_line3.innerHTML = "<b><big><big><big><big><em><strong>" + res[0] + "<br><small><small>" + "(" + res[1] + ")";
         view_lease_line4.innerHTML = "<b><big><big><em><strong>" + "to";
-        view_lease_line5.innerHTML = "<b><big><big><big><big><em><strong>" + res[2] + "<br>" + "(" + res[3] + ")";
+        view_lease_line5.innerHTML = "<b><big><big><big><big><em><strong>" + res[2] + "<br><small><small>" + "(" + res[3] + ")";
         view_lease_line6.innerHTML = "<big><b>Date : " + res[5];
 
         console.log(res);
